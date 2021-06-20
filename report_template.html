@@ -1,0 +1,56 @@
+<html>
+<head lang="pt-br">
+    <meta charset="ISO-8859-1">
+    <title>LiSN - Relatório de Testes</title>
+</head>
+<body>
+    <section>
+        <h1>Informações Pessoais</h1>
+        <p><strong>Nome: </strong>{{ name }}</p>
+        <p><strong>Sobrenome: </strong>{{ last_name }}</p>
+        <p><strong>Data de Nascimento: </strong>{{ birthday_date }}</p>
+        <p><strong>Idade: </strong>{{ age }}</p>
+        <p><strong>Sexo: </strong>{{ sex }}</p>
+    </section>
+
+    <section>
+        <h1>Resultados</h1>
+    </section>
+
+    <section>
+        <h1>Dados dos Testes</h1>
+
+        <h2>Mesma Voz 0</h2>
+        <p><strong>SRT: </strong>{{ srt_0 }}</p>
+        <p><strong>Desvio Padrão: </strong>{{ std_dev_0 }}</p>
+        <p><strong>Desvio Padrão do Erro: </strong>{{ std_err_0 }}</p>
+        <p><strong>Número de Sentenças: </strong>{{ n_sentences_0 }}</p>
+        {{same_voice_0_table}}
+
+        <h2>Mesma Voz +/- 90</h2>
+        <p><strong>SRT: </strong>{{ srt_1 }}</p>
+        <p><strong>Desvio Padrão: </strong>{{ std_dev_1 }}</p>
+        <p><strong>Desvio Padrão do Erro: </strong>{{ std_err_1 }}</p>
+        <p><strong>Número de Sentenças: </strong>{{ n_sentences_1 }}</p>
+        {{same_voice_90_table}}
+
+        <h2>Vozes Diferentes 0</h2>
+        <p><strong>SRT: </strong>{{ srt_2 }}</p>
+        <p><strong>Desvio Padrão: </strong>{{ std_dev_2 }}</p>
+        <p><strong>Desvio Padrão do Erro: </strong>{{ std_err_2 }}</p>
+        <p><strong>Número de Sentenças: </strong>{{ n_sentences_2 }}</p>
+        {{different_voices_0_table}}
+
+        <h2>Vozes Diferentes +/- 90</h2>
+        <p><strong>SRT: </strong>{{ srt_3 }}</p>
+        <p><strong>Desvio Padrão: </strong>{{ std_dev_3 }}</p>
+        <p><strong>Desvio Padrão do Erro: </strong>{{ std_err_3 }}</p>
+        <p><strong>Número de Sentenças: </strong>{{ n_sentences_3 }}</p>
+        {{different_voices_90_table}}
+
+    </section>
+
+
+
+</body>
+</html>

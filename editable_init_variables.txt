@@ -1,0 +1,5 @@
+dBRelPa_calibration_factor = 90
+phrase_initial_volume = 62
+noise_initial_volume = 55
+chunk_size = 1024
+#All volume values in this file are dBSPL

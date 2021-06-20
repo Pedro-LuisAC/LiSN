@@ -1,0 +1,5 @@
+Frases foram cortadas rente ao início e fim.
+Inseri um fade in e fade out de 5ms.
+Calculei o RMS de cada frase e normalizei em função deste valor.
+Amplifiquei para ter RMS total de -27.13dBFS.
+Inclui silêncio de 100ms antes e depois da frase.

@@ -28,7 +28,7 @@ global_variables.initialize()
 
 #Extract information from audio file title - Returns transcripted phrase and number of words of audio files in the path folder by providing an index in the function input. If no index is matched, the function returns False
 def get_audio_file_name_by_number(file_number: int):
-    path = 'audio_files/'
+    path = os.path.join(global_variables.BASE_DIR, 'audio_files')
     files_list = os.listdir(path)
     for file in files_list:
         try:    
@@ -43,7 +43,7 @@ def get_audio_file_name_by_number(file_number: int):
     return False
 
 def get_audio_file_name_random(already_used_phrases):
-    path = 'audio_files/'
+    path = os.path.join(global_variables.BASE_DIR, 'audio_files')
     files_list = os.listdir(path)
     file_name = False
     tries = 0
@@ -75,7 +75,8 @@ def chunk_raw_data(raw_data, chunk_size):
     return bytes_array
 
 def get_files_inside_audio_folder(folder):
-    path = 'audio_files/' + folder + '/'
+    path = os.path.join(global_variables.BASE_DIR, 'audio_files', folder)
+    #path = 'audio_files/' + folder + '/'
     files_list = os.listdir(path)
     return files_list
 
@@ -83,11 +84,12 @@ def get_files_inside_audio_folder(folder):
 
 class AudioWav():
     def __init__(self, file_name):
-        path = 'audio_files/'
+        path = os.path.join(global_variables.BASE_DIR, 'audio_files')
+        #path = 'audio_files/'
         self.file_name = file_name
         self.phrase = file_name[7:-4]
         self.words = file_name[4:6]
-        self.wf = wave.open(path+file_name, 'rb')
+        self.wf = wave.open(os.path.join(path,file_name), 'rb')
         self.sample_width = self.wf.getsampwidth()
         self.channels = self.wf.getnchannels()
         self.frame_rate = self.wf.getframerate()
@@ -98,7 +100,7 @@ class AudioWav():
                 output=True,
                 frames_per_buffer=1024)
 
-        self.audio_segment = AudioSegment.from_wav(path + file_name)
+        self.audio_segment = AudioSegment.from_wav(os.path.join(path, file_name))
         self.record_seconds = len(self.audio_segment)/1000
         self.chunk = 1024
         self._chunk_position = 0

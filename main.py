@@ -88,7 +88,8 @@ class Ui(QMainWindow):
         audio_file_different_voices_0 = get_files_inside_audio_folder('different_voices_0')
         audio_file_different_voices_90 = get_files_inside_audio_folder('different_voices_90')
         audio_file_start_tone = get_files_inside_audio_folder('start_tone')
-        self.start_tone = AudioWav('start_tone/'+ audio_file_start_tone[0])
+        #self.start_tone = AudioWav('start_tone/'+ audio_file_start_tone[0])
+        self.start_tone = AudioWav(os.path.join('start_tone', audio_file_start_tone[0]))
         self.start_tone.set_gain(global_variables.noise_db + 10)
         self.histories_list = [audio_files_same_voice_0, audio_file_same_voice_90, audio_file_different_voices_0, audio_file_different_voices_90]
         self.recorded_data = [[], [], [], []]
